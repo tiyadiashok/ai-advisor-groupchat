@@ -18,9 +18,9 @@ def incoming_mms(actual_number):
     'Naval Ravikant', 'Sam Altman'
   ]
   for i in range(actual_number):
-    print('current_number : %s' % (i))
+    #print('current_number : %s' % (i))
     response = board_of_advisors(names)
-    print('jaro_distance is %s'%(jellyfish.jaro_distance(recent_prompt, response)))
+    #print('jaro_distance is %s'%(jellyfish.jaro_distance(recent_prompt, response)))
     if jellyfish.jaro_distance(recent_prompt, response) < 0.7:
       convo.append(response)
       recent_prompt = response
@@ -45,7 +45,7 @@ def board_of_advisors(names):
   names_string = s.join(names)
   convo_string = j.join(convo)
 
-  print('speakers : %s : name : %s' % (speakers, name))
+  #print('speakers : %s : name : %s' % (speakers, name))
 
   summary_prompt = """Summarize this text conversation between business leaders that are helping me get results: %s""" % (
     convo_string)
@@ -82,7 +82,6 @@ def board_of_advisors(names):
 
 def run(number_of_messages):
   actual_number = np.random.choice(number_of_messages)
-  actual_number = 10
   incoming_mms(actual_number)
 
 
